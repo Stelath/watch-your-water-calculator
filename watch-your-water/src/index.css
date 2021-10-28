@@ -7,4 +7,24 @@ body {
   font-weight: 400;
 }
 
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.welcome {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background-image: url('./assets/images/CoralReef.jpeg');
+}
+
+.welcomeText {
+  color: white;
+}
 
