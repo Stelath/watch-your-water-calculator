@@ -1,38 +1,57 @@
 // Import SDKs
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
 // Import Components
-import Welcome from './components/Welcome';
-import WeightEntry from './components/WeightEntry';
+import Welcome from "./components/Welcome";
+import WeightEntry from "./components/WeightEntry";
+import ExerciseEntry from "./components/ExerciseEntry";
+import CalculatedWater from "./components/CalculatedWater";
 
 function App() {
   const [activeComponent, setActiveComponent] = useState(0);
+  const [userInfo, setUserInfo] = useState({ weight: 100, exercise: 60 });
 
-  function getActiveComponent()
-  {
-    switch(activeComponent) {
+  /*
+  Function used to change active component,
+  storeing components in a funciton instead of an array to
+  follow good codeing practice and improve performance.
+  */
+  const getComponent = (component) => {
+    switch (component) {
       case 0:
-        return(<Welcome onClick={welcomeButtonPressed} />);
+        return <Welcome onClick={welcomeButtonPressed} />;
       case 1:
-        console.log("Weight Entry");
-        return(<WeightEntry onClick={weightEntryButtonPressed} />);
+        return <WeightEntry onClick={weightEntryButtonPressed} />;
+      case 2:
+        return <ExerciseEntry onClick={exerciseEntryButtonPressed} />;
+      case 3:
+        const waterConsumption = calculateWaterConsumption(userInfo['weight'], userInfo['exercise']);
+        console.log(waterConsumption);
+        console.log(userInfo);
+        return <CalculatedWater waterConsumption={waterConsumption} />;
     }
-  }
+  };
 
-  function welcomeButtonPressed() {
-    console.log('Continue button pressed');
-    setActiveComponent(1);
-  }
+  /*
+  Active component function put in a variable to
+  allow components to call them on click
+  */
+  const welcomeButtonPressed = () => setActiveComponent(1);
+  const weightEntryButtonPressed = (weight) => {
+    setUserInfo((state) => ({ ...state, weight }));
+    setActiveComponent(2);
+  };
+  const exerciseEntryButtonPressed = (exercise) => {
+    setUserInfo((state) => ({ ...state, exercise }));
+    setActiveComponent(3);
+  };
 
-  function weightEntryButtonPressed() {
-    console.log('Weight button pressed');
-  }
+  const calculateWaterConsumption = (weight, exercise) => {
+    var waterConsumption = (2 / 3) * weight + (exercise / 30) * 12;
+    return Math.round(waterConsumption);
+  };
 
-  return (
-    <div className="App">
-      {getActiveComponent()}
-    </div>
-  );
+  return <div className="App">{getComponent(activeComponent)}</div>;
 }
 
 export default App;
