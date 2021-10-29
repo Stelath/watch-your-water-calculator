@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "../assets/css/form.css";
+import scale from "../assets/images/scale.svg";
 
 const WeightEntry = ({ onClick }) => {
   const [weight, setWeight] = useState(100);
@@ -8,9 +10,10 @@ const WeightEntry = ({ onClick }) => {
   const decrementWeight = () => setWeight((state) => parseInt(state) + 1);
 
   return (
-    <div className="weight-entry">
-      <h1>Please Enter Your Weight</h1>
-      <h4>In Pounds</h4>
+    <div className="weight-entry form-content">
+      <img src={scale} alt="" />
+      <h2 className="form-header">Please Enter Your Weight</h2>
+      <h4 className="form-subtext">(In Pounds)</h4>
       <div>
         <button onClick={incrementWeight}>&lt;</button>
         <input
@@ -20,7 +23,9 @@ const WeightEntry = ({ onClick }) => {
         />
         <button onClick={decrementWeight}>&gt;</button>
       </div>
-      <button onClick={() => onClick(weight)}>Next</button>
+      <button className="continue-button" onClick={() => onClick(weight)}>
+        Next
+      </button>
     </div>
   );
 };

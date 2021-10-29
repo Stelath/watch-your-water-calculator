@@ -1,10 +1,11 @@
 import React from "react";
+import '../assets/css/welcome.css'
 
 const Welcome = (props) => (
-    <div className="welcome">
-        <h1 className="welcomeText">Welcome to Watch Your Water!</h1>
-        <h3 className="welcomeText">Leading you to a healthier lifestyle one sip at a time</h3>
-        <button onClick={props.onClick}>Start</button>
+    <div className="form-content">
+        <h1 className="welcome-text">WATCH YOUR WATER</h1>
+        <h3 className="welcome-subtext">Leading you to a Healthier Lifestyle one sip at a Time</h3>
+        <button className="continue-button" onClick={props.onClick}>Start</button>
     </div>
 );
 

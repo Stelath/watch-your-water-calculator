@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 
 // Import Components
+import Waves from "./components/Waves";
 import Welcome from "./components/Welcome";
 import WeightEntry from "./components/WeightEntry";
 import ExerciseEntry from "./components/ExerciseEntry";
@@ -17,6 +18,7 @@ function App() {
   follow good codeing practice and improve performance.
   */
   const getComponent = (component) => {
+    // eslint-disable-next-line default-case
     switch (component) {
       case 0:
         return <Welcome onClick={welcomeButtonPressed} />;
@@ -25,9 +27,10 @@ function App() {
       case 2:
         return <ExerciseEntry onClick={exerciseEntryButtonPressed} />;
       case 3:
-        const waterConsumption = calculateWaterConsumption(userInfo['weight'], userInfo['exercise']);
-        console.log(waterConsumption);
-        console.log(userInfo);
+        const waterConsumption = calculateWaterConsumption(
+          userInfo["weight"],
+          userInfo["exercise"]
+        );
         return <CalculatedWater waterConsumption={waterConsumption} />;
     }
   };
@@ -51,7 +54,12 @@ function App() {
     return Math.round(waterConsumption);
   };
 
-  return <div className="App">{getComponent(activeComponent)}</div>;
+  return (
+    <div className="App content">
+      {getComponent(activeComponent)}
+      <Waves />
+    </div>
+  );
 }
 
 export default App;

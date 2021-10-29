@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../assets/css/form.css';
 
 const ExerciseEntry = ({ onClick }) => {
   const [exercise, setExercise] = useState(60);
@@ -9,9 +10,9 @@ const ExerciseEntry = ({ onClick }) => {
 
   return (
     <div>
-      <div className="exercise-entry">
-        <h1>How Much do You Plan on Exercising?</h1>
-        <h4>In Minutes</h4>
+      <div className="exercise-entry form-content">
+        <h2 className="form-header">How Much do You Plan on Exercising?</h2>
+        <h4 className="form-subtext">(In Minutes)</h4>
         <div>
           <button onClick={incrementExercise}>&lt;</button>
           <input
@@ -21,7 +22,7 @@ const ExerciseEntry = ({ onClick }) => {
           />
           <button onClick={decrementExercise}>&gt;</button>
         </div>
-        <button onClick={() => onClick(exercise)}>Next</button>
+        <button className="continue-button" onClick={() => onClick(exercise)}>Next</button>
       </div>
     </div>
   );
