@@ -1,0 +1,51 @@
+.calculated-water-text {
+  margin-bottom: 16px;
+}
+
+.consumption-container {
+    display: inline-block;
+    text-align: center;
+}
+
+.consumption {
+    font-family: "Roboto", sans-serif;
+  font-weight: 900;
+
+  font-size: 52px;
+  line-height: 1em;
+
+  color: #2389da;
+}
+
+.units {
+    font-family: "Roboto", sans-serif;
+  font-weight: 400;
+
+  font-size: 36px;
+  line-height: 1em;
+
+  color: #2389da;
+}
+
+.calculated-water-content {
+  text-align: center;
+
+  width: 75%;
+  height: auto;
+
+  position: absolute;
+  top: 10em;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
+
+/* Changeing CSS for Mobile */
+
+@media (max-width: 50em) {
+  .calculated-water-content {
+    top: 10%;
+  }
+}

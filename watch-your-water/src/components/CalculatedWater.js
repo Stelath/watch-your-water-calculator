@@ -1,10 +1,23 @@
 import React from "react";
+import "../assets/css/calculated-water.css";
 
-const CalculatedWater = ({ waterConsumption }) => (
-    <div className="calculated-water">
-      <h1>Your Reccomended Water Consumption:</h1>
-      <h2>{waterConsumption} oz</h2>
+const CalculatedWater = ({ weight, exercise }) => {
+  const calculateWaterConsumption = (weight, exercise) => {
+    var waterConsumption = (2 / 3) * weight + (exercise / 30) * 12;
+    return Math.round(waterConsumption);
+  };
+
+  const waterConsumption = calculateWaterConsumption(weight, exercise);
+
+  return (
+    <div className="calculated-water-content">
+      <h3 className="calculated-water-text">Reccomended Water Consumption:</h3>
+      <div className="consumption-container">
+        <span className="consumption">{waterConsumption}</span>
+        <span className="units"> Ounces/Day</span>
+      </div>
     </div>
-);
+  );
+};
 
-export default CalculatedWater
+export default CalculatedWater;
