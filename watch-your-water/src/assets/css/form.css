@@ -1,8 +1,41 @@
 .form-header {
+  margin-top: 16px;
   margin-bottom: 16px;
 }
 
 .form-subtext {
   margin-top: 8px;
+  margin-bottom: 16px;
 }
 
+.form-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-75%);
+  -webkit-transform: translateX(-50%) translateY(-75%);
+  transform: translateX(-50%) translateY(-75%);
+
+  text-align: center;
+}
+
+.form-image {
+  width: 25%;
+}
+
+/* Changeing CSS for Mobile */
+
+@media (max-width: 50em) {
+  .form-content {
+    width: 75%;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-75%);
+    -webkit-transform: translateX(-50%) translateY(-75%);
+    transform: translateX(-50%) translateY(-75%);
+
+    text-align: center;
+  }
+}

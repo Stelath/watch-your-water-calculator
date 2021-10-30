@@ -11,17 +11,18 @@ const WeightEntry = ({ onClick }) => {
 
   return (
     <div className="weight-entry form-content">
-      <img src={scale} alt="" />
+      <img className="form-image" src={scale} alt="" />
       <h2 className="form-header">Please Enter Your Weight</h2>
       <h4 className="form-subtext">(In Pounds)</h4>
-      <div>
-        <button onClick={incrementWeight}>&lt;</button>
+      <div className="counter-input">
+        <button className="text-input-button" onClick={incrementWeight}>&lt;</button>
         <input
           type="text"
+          className="text-input"
           onChange={(event) => setWeight(event.target.value)}
           value={weight}
         />
-        <button onClick={decrementWeight}>&gt;</button>
+        <button className="text-input-button" onClick={decrementWeight}>&gt;</button>
       </div>
       <button className="continue-button" onClick={() => onClick(weight)}>
         Next

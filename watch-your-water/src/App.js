@@ -55,7 +55,7 @@ function App() {
   };
 
   return (
-    <div className="App content">
+    <div className="App">
       {getComponent(activeComponent)}
       <Waves />
     </div>

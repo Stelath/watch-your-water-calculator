@@ -5,8 +5,11 @@
   bottom: 0;
   left: 0;
   right: 0;
-  
-  color: rgb(28,163,236);
+}
+
+.waves-base {
+  height: 100%;
+  background-color: rgb(28,163,236);
 }
 
 .flex { /*Flexbox for containers*/
@@ -58,5 +61,8 @@
   @media (max-width: 50em) {
     .waves {
       height: 17vw;
+    }
+    .waves-content {
+      height: 20%;
     }
   }

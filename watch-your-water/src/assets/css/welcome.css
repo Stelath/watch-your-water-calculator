@@ -5,3 +5,8 @@
 .welcome-subtext {
     margin-bottom: 24px;
 }
+
+.welcome-content {
+  text-align: center;
+  margin-top: 20%;
+}
