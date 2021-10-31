@@ -27,6 +27,7 @@ function App() {
     setActiveComponent((state) => state - 1);
     setTimeout(() => {setActiveFormAnimation("form-forward")}, 1000);
   };
+  const restartButtonPressed = () => setActiveComponent(0);
   const welcomeButtonPressed = () => setActiveComponent(1);
   const weightEntryButtonPressed = (weight) => {
     setUserInfo((state) => ({ ...state, weight }));
@@ -75,7 +76,7 @@ function App() {
         timeout={1000}
         classNames={activeFormAnimation}
       >
-        <CalculatedWater weight={userInfo['weight']} exercise={userInfo['exercise']} />
+        <CalculatedWater weight={userInfo['weight']} exercise={userInfo['exercise']} onClickRestart={restartButtonPressed} />
       </CSSTransition>
       <Waves />
     </div>
