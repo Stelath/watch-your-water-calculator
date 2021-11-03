@@ -43,7 +43,7 @@ function App() {
       <CSSTransition
         in={activeComponent === 0}
         unmountOnExit
-        timeout={1000}
+        timeout={500}
         classNames={activeFormAnimation}
       >
         <Welcome onClickStart={welcomeButtonPressed} />
@@ -51,7 +51,7 @@ function App() {
       <CSSTransition
         in={activeComponent === 1}
         unmountOnExit
-        timeout={1000}
+        timeout={500}
         classNames={activeFormAnimation}
       >
         <WeightEntry
@@ -62,7 +62,7 @@ function App() {
       <CSSTransition
         in={activeComponent === 2}
         unmountOnExit
-        timeout={1000}
+        timeout={500}
         classNames={activeFormAnimation}
       >
         <ExerciseEntry
@@ -73,7 +73,7 @@ function App() {
       <CSSTransition
         in={activeComponent === 3}
         unmountOnExit
-        timeout={1000}
+        timeout={500}
         classNames={activeFormAnimation}
       >
         <CalculatedWater weight={userInfo['weight']} exercise={userInfo['exercise']} onClickRestart={restartButtonPressed} />
