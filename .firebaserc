@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "watch-your-water"
+  },
+  "targets": {
+    "watch-your-water": {
+      "hosting": {
+        "calculator": [
+          "watch-your-water-calculator"
+        ]
+      }
+    }
   }
 }
