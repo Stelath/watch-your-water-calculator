@@ -11,13 +11,23 @@ const CalculatedWater = ({ weight, exercise, onClickRestart }) => {
 
   return (
     <div className="calculated-water-content">
-      <h3 className="calculated-water-text">Reccomended Water Consumption:</h3>
+      <h3 className="calculated-water-text">Recommended Water Consumption:</h3>
       <div className="consumption-container">
         <span className="consumption">{waterConsumption}</span>
         <span className="units"> Ounces/Day</span>
       </div>
       <button className="continue-button" onClick={onClickRestart}>
         Restart
+      </button>
+      <button
+        className="continue-button"
+        onClick={(e) => {
+          e.preventDefault();
+          window.location.href = "http://watchyourwater.org";
+        }}
+        style={{ marginLeft: "10px" }}
+      >
+        Go to Water Tracking Website!
       </button>
     </div>
   );

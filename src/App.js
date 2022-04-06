@@ -5,6 +5,9 @@ import { CSSTransition } from "react-transition-group";
 // Import Styles
 import "./assets/css/transitions.css";
 
+// Import Images
+import logo from "./assets/images/logo.svg";
+
 // Import Components
 import Waves from "./components/Waves";
 import Welcome from "./components/Welcome";
@@ -25,7 +28,9 @@ function App() {
   const backButtonPressed = () => {
     setActiveFormAnimation("form-backward");
     setActiveComponent((state) => state - 1);
-    setTimeout(() => {setActiveFormAnimation("form-forward")}, 1000);
+    setTimeout(() => {
+      setActiveFormAnimation("form-forward");
+    }, 1000);
   };
   const restartButtonPressed = () => setActiveComponent(0);
   const welcomeButtonPressed = () => setActiveComponent(1);
@@ -40,6 +45,15 @@ function App() {
 
   return (
     <div className="App">
+      <img
+        src={logo}
+        alt="logo"
+        style={{ width: 50, borderRadius: 10, position: "absolute", top: 10, right: 10 }}
+        onClick={(e) => {
+          e.preventDefault();
+          window.location.href = "http://watchyourwater.org";
+        }}
+      />
       <CSSTransition
         in={activeComponent === 0}
         unmountOnExit
@@ -76,7 +90,11 @@ function App() {
         timeout={500}
         classNames={activeFormAnimation}
       >
-        <CalculatedWater weight={userInfo['weight']} exercise={userInfo['exercise']} onClickRestart={restartButtonPressed} />
+        <CalculatedWater
+          weight={userInfo["weight"]}
+          exercise={userInfo["exercise"]}
+          onClickRestart={restartButtonPressed}
+        />
       </CSSTransition>
       <Waves />
     </div>
